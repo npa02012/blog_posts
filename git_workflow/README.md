@@ -15,7 +15,7 @@ The workflow consists of three persistent branches:
 ### The Workflow  
   
 <br>
-![](readme_figures/git_workflow.png?raw=true)
+<img src="readme_figures/git_workflow.png">
   
 ### General guidelines
 * It is necessary to have a project expert who is in charge of ensuring the correct code changes occur when merging features into **dev**. 
