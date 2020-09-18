@@ -1,7 +1,7 @@
 ## Predicting Time Series
 This post outlines basic strategies for predicting time-series problems using machine learning.  
   
-Although simple, these ideas have been at the core of the model building proccesses for a majority of the top solutions in Kaggle competitions such as [M5 Walmart Sales](https://www.kaggle.com/c/m5-forecasting-accuracy/) and [Coorpacion Favorita](https://www.kaggle.com/c/favorita-grocery-sales-forecasting).
+Although simple, these ideas have been at the core of the model building proccesses for a majority of the top solutions in Kaggle competitions such as [M5 Walmart Sales](https://www.kaggle.com/c/m5-forecasting-accuracy/) and [Corporacion Favorita](https://www.kaggle.com/c/favorita-grocery-sales-forecasting).
 
 ### Problem Type
 In a typical  time-series problem, you are given N series consisting of T data points. This data can be represented in a N x (T+1) matrix, with one column reserved for a primary key to identify the nth series.  
@@ -40,10 +40,11 @@ Following are two model buildling approaches that I have seen be successful in K
 ##### The Recursive Model Approach
 In the recursive model approach, we build a single model which is able to predict one day into the future. We then use our predictions as training data to predict the subsequent days. In our example, we would use our predictions of days 1001 &#8594; 1006 to predict day 1007.  
 
-I used the recursive approach in the <a href="https://github.com/npa02012/kaggle_walmart_sales" target="_blank">Kaggle Walmart Sales competition</a>.
+I used the recursive approach in the [Walmart Sales](https://github.com/npa02012/kaggle_walmart_sales) competition.
 
-##### The Many Models Aproach
+##### The Many-Models Aproach
 
+I used the many-models approach in the Corporacion Favorita competition. [Here](https://www.kaggle.com/npa02012/ceshine-s-lgbm-starter-in-r-lb-0-529) is a script I published for that competition.
 
 ##### Other approaches
 
