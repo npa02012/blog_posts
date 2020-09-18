@@ -6,21 +6,21 @@ Although simple, these ideas have been at the core of the model building procces
 ### Problem Type
 In a typical  time-series problem, you are given N series consisting of T data points. This data can be represented in a N x (T+1) matrix, with one column reserved for a primary key to identify the nth series.  
   
-To make this article easy to write and read, an example problem is provided:  
+To make this post easy to write and read, an example problem is provided:  
 
 Suppose we are given 1000 days of historical sales data for 20000 items sold on a large online retail store. We are tasked with predicting sales for each item 7 days into the future. The data is represented in the 20000 x 1008 table below:
 
-![]()
+<img src="readme_figures/df_all.png">
 
 ### Training Data
 
-To structure the data into feature and truth sets, we use historical sales as our target sets and the prior days as features. In the example below, we use the first 100 days of item sales as the features, and the subsequent 7 days as truth values:  
+We use portions of historical sales as truth sets and the corresponding previous days as features. In the example below, we use the first 100 days of item sales as the features, and the subsequent 7 days as truth values:  
 
-![]()
+<img src="readme_figures/df_100.png">
 
 We can build out many sets like this one in order to increase our total training size:
 
-![]()
+<img src="readme_figures/df_155.png">
 
 ![]()
 
