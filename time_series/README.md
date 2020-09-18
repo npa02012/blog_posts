@@ -1,7 +1,7 @@
 ## Predicting Time Series
 This post outlines basic strategies for predicting time-series problems using machine learning.  
   
-Although simple, these ideas have been at the core of the model building proccesses for a majority of the top solutions in Kaggle competitions such as [M5 Walmart Sales](kaggle.com) and [Coorpacion Favorita](kaggle.com).
+Although simple, these ideas have been at the core of the model building proccesses for a majority of the top solutions in Kaggle competitions such as [M5 Walmart Sales](https://www.kaggle.com/c/m5-forecasting-accuracy/) and [Coorpacion Favorita](https://www.kaggle.com/c/favorita-grocery-sales-forecasting).
 
 ### Problem Type
 In a typical  time-series problem, you are given N series consisting of T data points. This data can be represented in a N x (T+1) matrix, with one column reserved for a primary key to identify the nth series.  
@@ -34,7 +34,19 @@ When creating the training data, you will encounter several dilemmas including:
 Training data in time series is explored further in [this blog post](https://github.com/npa02012/blog_posts/tree/master/ts_training_data).
 
 ### Model Building
-This post only considers using 'standard' machine learning libraries such as LightGBM, CatBoost, or randomForest. Take note that neural nets provide more flexibility with how time-series can be modeled. [Here](https://github.com/sjvasquez/web-traffic-forecasting) is one such example of using CNNs to model web-traffic data.  
 
+Following are two model buildling approaches that I have seen be successful in Kaggle competitions:
+
+##### The Recursive Model Approach
+In the recursive model approach, we build a single model which is able to predict one day into the future. We then use our predictions as training data to predict the subsequent days. In our example, we would use our predictions of days 1001 &#8594; 1006 to predict day 1007.  
+
+I used the recursive approach in the <a href="https://github.com/npa02012/kaggle_walmart_sales" target="_blank">Kaggle Walmart Sales competition</a>.
+
+##### The Many Models Aproach
+
+
+##### Other approaches
+
+This post only considers using 'standard' machine learning libraries such as LightGBM, CatBoost, or randomForest. Take note that neural nets provide more flexibility with how time-series can be modeled. [Here](https://github.com/sjvasquez/web-traffic-forecasting) is one such example of using CNNs to model web-traffic data.  
 
 
