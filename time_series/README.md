@@ -34,7 +34,7 @@ When creating the training data, you will encounter several dilemmas including:
 Training data in time series is explored further in [this blog post](https://github.com/npa02012/blog_posts/tree/master/ts_training_data).
 
 ### Model Building
-This post only considers using 'standard' machine learning libraries such as LightGBM, CatBoost, or randomForest. Take note that neural nets provide more flexibility with how time-series can be modeled. [Here](sjv link) is one such example of using CNNs to model web-traffic data.  
+This post only considers using 'standard' machine learning libraries such as LightGBM, CatBoost, or randomForest. Take note that neural nets provide more flexibility with how time-series can be modeled. [Here](https://github.com/sjvasquez/web-traffic-forecasting) is one such example of using CNNs to model web-traffic data.  
 
 
 
