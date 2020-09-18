@@ -1,4 +1,4 @@
-### Git Workflow for Small Teams
+## Git Workflow for Small Teams
 This post shares a slim git workflow that may be useful for those working on small, collaborative teams with short iteration cycles.  
   
 For consistency, the recommendations in this post are rigid; however, the workflow could be easily adjusted to meet alternate needs.
