@@ -10,17 +10,17 @@ To make this post easy to write and read, an example problem is provided:
 
 Suppose we are given 1000 days of historical sales data for 20000 items sold on a large online retail store. We are tasked with predicting sales for each item 7 days into the future. The data is represented in the 20000 x 1008 table below:
 
-<img src="readme_figures/df_all.png" width=550>
+<img src="readme_figures/df_all.png" width=600>
 
 ### Training Data
 
 We use portions of historical sales as truth sets and the corresponding previous days as features. In the example below, we use the first 100 days of item sales as the features, and the subsequent 7 days as truth values:  
 
-<img src="readme_figures/df_100.png" width=550>
+<img src="readme_figures/df_100.png" width=600>
 
 We can build out many sets like this one in order to increase our total training size:
 
-<img src="readme_figures/df_155.png" width=550>
+<img src="readme_figures/df_155.png" width=600>
 
 ![]()
 
