@@ -4,9 +4,7 @@ This post outlines basic strategies for predicting time-series problems using ma
 Although simple, these ideas have been at the core of the model building proccesses for a majority of the top solutions in Kaggle competitions such as [M5 Walmart Sales](https://www.kaggle.com/c/m5-forecasting-accuracy/) and [Corporacion Favorita](https://www.kaggle.com/c/favorita-grocery-sales-forecasting).
 
 ### Problem Type
-In a typical  time-series problem, you are given N series consisting of T data points. This data can be represented in a N x (T+1) matrix, with one column reserved for a primary key to identify the nth series.  
-  
-To make this post easy to write and read, an example problem is provided:  
+In a typical  time-series problem, you are given N series consisting of T data points. This data can be represented in a N x (T+1) matrix, with one column reserved for a primary key to identify the nth series. Here is an example problem:  
 
 Suppose we are given 1000 days of historical sales data for 20000 items sold on a large online retail store. We are tasked with predicting sales for each item 7 days into the future. The data is represented in the 20000 x 1008 table below:
 
@@ -35,16 +33,18 @@ Training data in time series is explored further in [this blog post](https://git
 
 ### Model Building
 
-Following are two model buildling approaches that I have seen be successful in Kaggle competitions:
+Following are two model buildling approaches that I have seen used successfully in Kaggle competitions:
 
 ##### The Recursive Model Approach
-In the recursive model approach, we build a single model which is able to predict one day into the future. We then use our predictions as training data to predict the subsequent days. In our example, we would use our predictions of days 1001 &#8594; 1006 to predict day 1007.  
+In the recursive model approach, we build a single model which is able to predict one day into the future. We then use our predictions as feature data to predict the subsequent days. In our example, we would use our predictions of days 1001 &#8594; 1006 to predict day 1007.  
 
-I used the recursive approach in the [Walmart Sales](https://github.com/npa02012/kaggle_walmart_sales) competition.
+I used the recursive approach in the Walmart Sales competition to predict 28 days into the future. [Here](https://github.com/npa02012/kaggle_walmart_sales) is a blog post I made for my work in that competition.
 
 ##### The Many-Models Aproach
 
-I used the many-models approach in the Corporacion Favorita competition. [Here](https://www.kaggle.com/npa02012/ceshine-s-lgbm-starter-in-r-lb-0-529) is a script I published for that competition.
+In the many-models approach, we build one model for each day into the future that we are tasked to predict. In our example, we would build a total of 7 models. The 'first' model would predict one day into the future, while the 'seventh' model would predict 7 days into the future.
+
+I used the many-models approach in the Corporacion Favorita competition to predict 16 days into the future. [Here](https://www.kaggle.com/npa02012/ceshine-s-lgbm-starter-in-r-lb-0-529) is a script I published for that competition.
 
 ##### Other approaches
 
