@@ -49,5 +49,3 @@ I used the many-models approach in the Corporacion Favorita competition to predi
 ##### Other approaches
 
 This post only considers using 'standard' machine learning libraries such as LightGBM, CatBoost, or randomForest. Take note that neural nets provide more flexibility with how time-series can be modeled. [Here](https://github.com/sjvasquez/web-traffic-forecasting) is one such example of using CNNs to model web-traffic data.  
-
-
