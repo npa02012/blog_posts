@@ -38,14 +38,14 @@ Following are two model buildling approaches that I have seen used successfully 
 ##### The Recursive Model Approach
 In the recursive model approach, we build a single model which is able to predict one day into the future. We then use our predictions as feature data to predict the subsequent days. In our example, we would use our predictions of days 1001 &#8594; 1006 to predict day 1007.  
 
-I used the recursive approach in the Walmart Sales competition to predict 28 days into the future. [Here](https://github.com/npa02012/kaggle_walmart_sales) is a blog post I made for my work in that competition.
+I used the recursive approach in the Walmart Sales competition to predict 28 days into the future. [Here is a blog post](https://github.com/npa02012/kaggle_walmart_sales) I made for my work in that competition.
 
 ##### The Many-Models Aproach
 
 In the many-models approach, we build one model for each day into the future that we are tasked to predict. In our example, we would build a total of 7 models. The 'first' model would predict one day into the future, while the 'seventh' model would predict 7 days into the future.
 
-I used the many-models approach in the Corporacion Favorita competition to predict 16 days into the future. [Here](https://www.kaggle.com/npa02012/ceshine-s-lgbm-starter-in-r-lb-0-529) is a script I published for that competition.
+I used the many-models approach in the Corporacion Favorita competition to predict 16 days into the future. [Here is a script](https://www.kaggle.com/npa02012/ceshine-s-lgbm-starter-in-r-lb-0-529) I published for that competition.
 
 ##### Other approaches
 
-This post only considers using 'standard' machine learning libraries such as LightGBM, CatBoost, or randomForest. Take note that neural nets provide more flexibility with how time-series can be modeled. [Here](https://github.com/sjvasquez/web-traffic-forecasting) is one such example of using CNNs to model web-traffic data.  
+This post only considers using 'standard' machine learning libraries such as LightGBM, CatBoost, or randomForest. Take note that neural nets provide more flexibility with how time-series can be modeled. [Here is an example](https://github.com/sjvasquez/web-traffic-forecasting) of using CNNs to model web-traffic data (not my work).  
