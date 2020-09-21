@@ -25,7 +25,7 @@ We can build out many sets like this one in order to increase our total training
 
 When creating the training data, you will encounter several dilemmas including:  
 
-* How much training data should be created? Above, we created 60,000 rows, and have the possibility of creating 19.86M rows (993 * 20,000).
+* How much training data should be created? Above, we created 60,000 rows, and have the possibility of creating 17.86M rows (893 * 20,000).
 * Should each truth set begin on the same day and match the final test set? For example, if day 1001 is a Monday, should the first day of each truth set also begin on a Monday?
 * How can we feature engineer the training set?
 

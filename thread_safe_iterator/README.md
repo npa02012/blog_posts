@@ -35,7 +35,7 @@ Out:
 
 The following class will allow us to make an iterable object thread safe.  
 
-The key for thread-safety is the *threading.Lock* object. When *\__next\__* is called, each thread will have to wait to *aquire* the lock before obtaining the next element of the iterator. Likewise, a thread does not release lock is not *released* until the iterator has passed it's next element.
+The key for thread-safety is the *threading.Lock* object. When *\__next\__* is called, each thread will have to wait to *aquire* the lock before obtaining the next element of the iterator. Likewise, a release lock is not *released* by a thread until the iterator has passed it's next element.
 
 The *try* statement is used in case the iterator has been exhausted.
 
@@ -146,5 +146,5 @@ Printing from Thread 4: 7
 
 Notice here that the elements are not printed in order (0 &#8594; 10). This is expected, but can raise complexity in certain situations. We would need to account for this if we required a mapping from our *thread\_safe\_iterator* object to return values from the threading *target* function.  
 
-Returning values from threads and it's complexities is explored in [this blog post](https://github.com/npa02012/blog_posts/tree/master/returning_from_threads).
+Returning values from threads and it's complexities are explored in [this blog post](https://github.com/npa02012/blog_posts/tree/master/returning_from_threads).
 
