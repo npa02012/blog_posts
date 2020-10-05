@@ -5,8 +5,7 @@ In this post, I outline steps I use to make a production-level Raspberry Pi syst
 * Raspberry Pi 4 - Model B
 (2GB RAM)
 * 32GB Samsung microSDHC UHS-I Card
-* Macbook Pro (2014)
-	* Running macOS Sierra (version 10.12.6)
+* Macbook Pro - Running macOS Sierra
 
 
 ## SD Card Setup
