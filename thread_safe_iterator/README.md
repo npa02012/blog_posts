@@ -148,7 +148,7 @@ random.seed(1)
 
 def task(it, it_index):
     for i in it:
-        time.sleep(round(random.random(), 2))
+        time.sleep(random.random())
         print('Printing from Thread ' + str(it_index) + ': ' + str(i))
         
 sample_it = thread_safe_iterator(range(10))
@@ -173,7 +173,5 @@ Printing from Thread 3: 6
 Printing from Thread 4: 7
 ```
 
-Notice here that the elements are not printed in order (0 &#8594; 10). This is expected, but may raise complexity in certain situations. We would need to account for this if we required a mapping from our *thread\_safe\_iterator* object to return values from the threading *target* function.  
-
-Returning values from threads and its complexities are overviewed in [this blog post](https://github.com/npa02012/blog_posts/tree/master/returning_from_threads).
+Notice here that the elements are not printed in order (0 &#8594; 10). This is expected, but may raise complexity in certain situations. We would need to account for this if we required a mapping from our *thread\_safe\_iterator* object to return values from the threading *target* function. [This blog post](https://github.com/npa02012/blog_posts/tree/master/returning_from_threads) introduces one method to return from worker threads in a predetermined order.
 
