@@ -38,7 +38,7 @@ Following are two model buildling approaches that I have seen used successfully 
 ##### The Recursive Model Approach
 In the recursive model approach, we build a single model which is able to predict one day into the future. We then use our predictions as feature data to predict the subsequent days. In our example, we would use our predictions of days 1001 &#8594; 1006 to predict day 1007.  
 
-I used the recursive approach in the Walmart Sales competition to predict 28 days into the future. [Here is a blog post](https://github.com/npa02012/kaggle_walmart_sales) I made for my work in that competition.
+I used the recursive approach in the Walmart Sales competition to predict 28 days into the future. [Here is a repo](https://github.com/npa02012/kaggle_walmart_sales) I made for that competition.
 
 ##### The Many-Models Aproach
 
