@@ -43,7 +43,7 @@ features_100 = get_lag_sales(df_100, 101)
 
 At this point, our training data will look like the following:  
 
-<img src="readme_figures/fe_0.png" width=600>
+<img src="readme_figures/fe_0.png" width=400>
 
 Where **F_1** &#8594; **F_7** will be your *y_train*. I implemented this type of logic [here](https://github.com/npa02012/kaggle_walmart_sales/blob/master/scripts/fe_functions.R#L13) for the Walmart Sales Kaggle Competition.  
 
