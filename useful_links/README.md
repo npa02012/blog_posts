@@ -8,3 +8,4 @@
 #### Data Science Engineering in Practice
 * [Production Grade PySpark Jobs](https://developerzen.com/best-practices-writing-production-grade-pyspark-jobs-cb688ac4d20f)
 * [ML Production Engineering at Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/ml-workflows.html)
+* [K8s on AWS EC2](https://brunocalza.me/2017/03/14/getting-started-with-kubernetes-on-aws/)
