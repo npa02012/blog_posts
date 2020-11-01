@@ -39,7 +39,7 @@ The *create cluster* command will not build the cluster. There may be a flag you
 kops update cluster ${CLUSTER_NAME} --yes
 ```
 
-At this point, I noticed on my AWS EC2 dashboard, I had 3 instances running (1 master, 2 slaves), furthermore, I get can run the following:
+At this point, I noticed on my AWS EC2 dashboard, I had 3 instances running (1 master, 2 slaves). I can also run the following to see the nodes:  
 
 ```shell
 kubectl get nodes
