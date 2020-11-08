@@ -1,18 +1,79 @@
-## K8s Setup
+## Launching a K8s Cluster from an EC2 Instance
 
-Steps I take to set up Kubernetes to run on AWS EC2 instances. I am following primarily [these instructions](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md) and I am working from my Mac (running MacOS Sierra).
+#### Setup
 
-### Install kubectl, kOps, and AWS CLI
+* [Make an Amazon EC2 Key Pair](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html#displaying-a-key-pair)
+* Make an IAM Role:
+	* Trusted Entity: AWS Service
+	* Use case: EC2
+	* Policies: AdministratorAccess
 
-[See here](https://github.com/kubernetes/kops/blob/master/docs/install.md) to install kubectl and kOps. There are also directions for installing the AWS CLI; however, I eneded up using [these instructions](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html) to do so.  
 
-After installing, **kubectl**, **kops**, and **aws** should be available bash commands.
+#### Launch an EC2 Instance:
 
-### AWS Setup
+* Ubuntu Server 20.04 LTS (HVM), SSD Volume Type - ami-0dba2cb6798deb6d8 (64-bit x86)
+* Instance Type: t2.medium
+* Configuration Instance Details: Default, except add the IAM role from above.
+* On launch, add the key pair made above
 
-* Create an AWS account and add credit card for billing.
-* Create an IAM user with admin privledges. Record the aws\_access\_key\_id and the aws\_secret\_access\_key.
-* Run **aws configure** to setup credentials.
+#### Connect to the EC2 Instance
+Now connect to the instance using its Public IPv4 address, for example:
+
+**Explanation for where this comes from**
+
+```
+ssh -i ./ec2_key.pem ubuntu@xx.xxx.xxx.xxx
+```
+
+#### Setup Environment of Instance
+
+Run this script on the EC2 instance:
+
+[Installing Docker](https://docs.docker.com/engine/install/ubuntu/)
+[Install kOps and kubectl](https://github.com/kubernetes/kops/blob/master/docs/install.md)
+
+```
+# Update apt
+sudo apt-get update
+
+# Install other packages for Docker
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+    
+# Add docker GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Install Docker
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+   
+# Install kOps
+curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x ./kops
+sudo mv ./kops /usr/local/bin/
+
+# Install kubectl
+curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+# Get Spark
+wget https://mirror.olnevhost.net/pub/apache/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz
+tar -xvf spark-3.0.1-bin-hadoop3.2.tgz
+sudo mv spark-3.0.1-bin-hadoop3.2 /opt/spark
+
+
+# Make an SSH key (no password)
+ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""
+
+
+```
 
 ##### Setup an S3 Bucket:
 ```shell
@@ -41,6 +102,12 @@ kops update cluster ${CLUSTER_NAME} --yes
 
 At this point, I noticed on my AWS EC2 dashboard, I had 3 instances running (1 master, 2 slaves). I can also run the following to see the nodes:  
 
+```
+# Not sure if this is needed
+kops create secret --name npa02012.k8s.local sshpublickey admin -i ~/.ssh/id_rsa.pub
+```
+
+
 ```shell
 kubectl get nodes
 
@@ -57,7 +124,7 @@ ip-172-20-62-58.ec2.internal    Ready    node     15m   v1.18.10
 Finally we can delete the cluster by running the following:  
 
 ```shell
-kops delete cluster --name ${CLUSTER_NAME}
+kops delete cluster --name ${CLUSTER_NAME} --yes
 ```
 
 Note: This will delete the cluster configuration files in the S3 bucket. We will have to recreate the cluster configuration to build the cluster again (I'm sure there are flags to add to **kops delete** to prevent this).
