@@ -72,7 +72,6 @@ sudo mv spark-3.0.1-bin-hadoop3.2 /opt/spark
 # Make an SSH key (no password)
 ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""
 
-
 ```
 
 ##### Setup an S3 Bucket:
