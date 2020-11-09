@@ -17,6 +17,7 @@ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
+sudo apt-get install docker-ce docker-ce-cli containerd.io
    
 # Install kOps
 curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
@@ -32,6 +33,9 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 wget https://mirror.olnevhost.net/pub/apache/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz
 tar -xvf spark-3.0.1-bin-hadoop3.2.tgz
 sudo mv spark-3.0.1-bin-hadoop3.2 /opt/spark
+
+# Delete spark tarball
+rm spark-3.0.1-bin-hadoop3.2.tgz
 
 
 # Make an SSH key (no password)

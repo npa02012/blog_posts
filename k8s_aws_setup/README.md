@@ -17,64 +17,35 @@
 * On launch, add the key pair made above
 
 #### Connect to the EC2 Instance
-Now connect to the instance using its Public IPv4 address, for example:
+Now connect to the instance:  
 
-**Explanation for where this comes from**
+* ec2_key.pem is th PEM file associated with the Amazon EC2 Key Pair you made above.
+* xx.xxx.xxx.xxx is Public IPv4 address of the EC2 instance. 
 
 ```
 ssh -i ./ec2_key.pem ubuntu@xx.xxx.xxx.xxx
 ```
 
 #### Setup Environment of Instance
-
-Run this script on the EC2 instance:
-
-[Installing Docker](https://docs.docker.com/engine/install/ubuntu/)
-[Install kOps and kubectl](https://github.com/kubernetes/kops/blob/master/docs/install.md)
+```
+wget https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/ubuntu_setup.sh
+chmod +x ubuntu_setup.sh
+./ubuntu_setup.sh
+```
+**Add removal of spark-3.0.1-bin-hadoop3.2.tgz from home folder**  
 
 ```
-# Update apt
-sudo apt-get update
-
-# Install other packages for Docker
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-    
-# Add docker GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-# Install Docker
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-   
-# Install kOps
-curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
-chmod +x ./kops
-sudo mv ./kops /usr/local/bin/
-
-# Install kubectl
-curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-
-# Get Spark
-wget https://mirror.olnevhost.net/pub/apache/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz
-tar -xvf spark-3.0.1-bin-hadoop3.2.tgz
-sudo mv spark-3.0.1-bin-hadoop3.2 /opt/spark
-
-
-# Make an SSH key (no password)
-ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""
-
+rm spark-3.0.1-bin-hadoop3.2.tgz
 ```
+
+The script above uses commands from:  
+
+* [Installing Docker](https://docs.docker.com/engine/install/ubuntu/)  
+* [Install kOps and kubectl](https://github.com/kubernetes/kops/blob/master/docs/install.md)
 
 ##### Setup an S3 Bucket:
+You only have to do this once:
+
 ```shell
 aws s3api create-bucket --bucket npa02012-k8s-state --region us-east-1
 ```
@@ -99,12 +70,7 @@ The *create cluster* command will not build the cluster. There may be a flag you
 kops update cluster ${CLUSTER_NAME} --yes
 ```
 
-At this point, I noticed on my AWS EC2 dashboard, I had 3 instances running (1 master, 2 slaves). I can also run the following to see the nodes:  
-
-```
-# Not sure if this is needed
-kops create secret --name npa02012.k8s.local sshpublickey admin -i ~/.ssh/id_rsa.pub
-```
+After a few minutes, the cluster should be running. Check by running the following:
 
 
 ```shell
