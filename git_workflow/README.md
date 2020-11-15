@@ -6,8 +6,8 @@ For consistency, the recommendations in this post are rigid; however, the workfl
 ### Getting Started  
 The workflow consists of three persistent branches:
  
-* **master**: A typical master branch that is installed by end-users.  
-* **stage**: The branch used to ensure a package is ready for deployment. Ensure the package builds successfully, CI/CD pipelines are functioning, and any other operational workflows are ready.  
+* **master**: A typical master branch.
+* **stage**: The branch used to ensure that a package is ready for deployment,  a package builds successfully, that the CI/CD pipelines are functioning, and any other operational workflows are ready.  
 * **dev**: The branch used to merge features and ensure software tests execute successfully.
   
 **Feature branches** are branched from **dev** and are where code-changes actually happen.
