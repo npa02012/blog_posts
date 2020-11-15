@@ -20,12 +20,14 @@ sudo add-apt-repository \
 sudo apt-get install docker-ce docker-ce-cli containerd.io
    
 # Install kOps
-curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+curl -Lo kops https://github.com/kubernetes/kops/releases/download/\
+		$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
 chmod +x ./kops
 sudo mv ./kops /usr/local/bin/
 
 # Install kubectl
-curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/\
+		$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
@@ -37,6 +39,17 @@ sudo mv spark-3.0.1-bin-hadoop3.2 /opt/spark
 # Delete spark tarball
 rm spark-3.0.1-bin-hadoop3.2.tgz
 
+# Get unzip
+sudo apt install unzip
+
+# Get awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Delete aws files
+rm awscliv2.zip
+rm -r aws
 
 # Make an SSH key (no password)
 ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""
