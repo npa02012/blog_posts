@@ -1,5 +1,7 @@
 ## First Spark Job on the K8s Cluster
 
+This is a continuation from [this previous post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup). That is, the exact setup/configurations/environment is built upon here.
+
 ### Install JDK
 
 ```
