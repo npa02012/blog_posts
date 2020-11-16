@@ -101,3 +101,8 @@ kops delete cluster --name ${CLUSTER_NAME} --yes
 ```
 
 Note: This will delete the cluster configuration files in the S3 bucket.
+
+
+### Next Steps
+
+[This post](https://github.com/npa02012/blog_posts/tree/master/spark_on_k8s) outlines the steps for executing an example Spark job on the K8s cluster.

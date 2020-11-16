@@ -1,77 +1,107 @@
-## Running a Spark Job on the K8s Cluster
+## First Spark Job on the K8s Cluster
 
 ### Install JDK
 
 ```
-# Try 1.8 (that is what is in the sample docker image)
-sudo apt install openjdk-11-jre-headless
+sudo apt install openjdk-8-jre-headless
 ```
 
-### Run a Local Sample Job
+Check that the install is working nicely with Spark by running a sample job locally:
 
 ```
-PYSPARK_PYTHON=/usr/bin/python3
+export PYSPARK_PYTHON=/usr/bin/python3
 cd /opt/spark
 ./bin/spark-submit examples/src/main/python/pi.py 10
 ```
+### Build a Docker Image
 
-### Setup
-
-```
-# Didn't help (?)
-kubectl create serviceaccount spark
-kubectl create clusterrolebinding spark-role --clusterrole=edit  --serviceaccount=default:spark --namespace=default
-```
-[Good reference](https://towardsdatascience.com/how-to-build-spark-from-source-and-deploy-it-to-a-kubernetes-cluster-in-60-minutes-225829b744f9)  
-Searched: simple spark kubernetes spark-submit example  
-Trying to submit job from the sample docker image
+We are going to build the sample Docker image that comes with Spark. This is the image that will eventually be used in our pods when our spark job is running.
 
 ```
 # Build the sample docker image
-docker build -t spark:latest -f kubernetes/dockerfiles/spark/Dockerfile .
+cd /opt/spark
+sudo docker build -t spark:latest -f kubernetes/dockerfiles/spark/Dockerfile .
 ```
-### Make Script to Run Sample Job
+
+We will call the image **spark:latest** for now.
+
+### Docker Hub
+
+We need to publish our docker image to Docker Hub (there are other options at this point).
+
+* [Create a Docker Hub account](https://hub.docker.com)
+* [Create a repository](https://hub.docker.com/repositories) (from the UI)
+* Login to Docker (from your EC2 instance):
+
+```
+sudo docker login
+```
+
+My repository is: **npa02012/test-spark-repo**
+
+### Push Docker Image
+
+Tag and push the sample docker image made above (named **spark:latest**) to the repository just made (named **npa02012/test-spark-repo**):
+
+
+```
+sudo docker tag spark:latest npa02012/test-spark-repo:firstimagepush
+sudo docker push npa02012/test-spark-repo:firstimagepush
+```
+
+### Make a Service Account for Spark
+
+```
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit  --serviceaccount=default:spark --namespace=default
+```
+
+### Make Script to Run the Sample Job
 ```
 #!/bin/bash
 /opt/spark/bin/spark-submit \
-   --master k8s://https://api-npa02012-k8s-local-g65apd-778551732.us-east-1.elb.amazonaws.com:443 \
+   --master k8s://<SERVER>:443 \
    --deploy-mode cluster \
-   --name spark-pi \
    --class org.apache.spark.examples.SparkPi \
-   --conf spark.kubernetes.driver.pod.name=pod_name \
    --conf spark.kubernetes.file.upload.path=s3a://npa02012-k8s-state/npa02012.k8s.local \
    --conf spark.kubernetes.driver.pod.name=spark-pi-driver \
-   --conf spark.executor.instances=3 \
-   --conf spark.kubernetes.container.image=bitnami/spark \
-   --conf spark.kubernetes.namespace=default \
-   local:///opt/spark/examples/jars/spark-examples_2.12-3.7.1.jar
+   --conf spark.kubernetes.container.image=npa02012/test-spark-repo:firstimagepush \
+   --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
+   local:///opt/spark/examples/jars/spark-examples_2.12-3.0.1.jar
 ```
 
-Where **SERVER** is the cluster API server address, found by calling:  
+Where **\<SERVER\>** is the cluster API server address, found by calling:  
 
 ```
 kubectl config view
 ```
 
-**bitnami/spark** refers to [this publick docker image](https://hub.docker.com/r/bitnami/spark/).
+Note that the *spark.kubernetes.file.upload.path* and *spark.kubernetes.container.image* arguements may also vary for you.
 
+### Conclusion
+
+The script above should execute successfuly. Here is a sample output received from the job:
 
 ```
-./run_spark.sh > result.txt 2>&1
+Out:
+-------------------------  
+ phase: Succeeded
+ container status: 
+	 container name: spark-kubernetes-driver
+	 container image: npa02012/test-spark-repo:firstimagepush
+	 container state: terminated
+	 container started at: 2020-11-16T00:28:04Z
+	 container finished at: 2020-11-16T00:28:41Z
+	 exit code: 0
+	 termination reason: Completed
 ```
 
+We just ran our first Spark job on a K8s cluster!  
 
-### Helpful Commands
+If you are running into problems, I found it most useful to investigate the pod's logs:  
+
 ```
-# docker
-sudo docker image ls -a # List all images
-sudo docker run -t -i IMAGE_ID /bin/bash
-sudo docker container ls # List containers
-sudo docker stop CONTAINER_ID
-
-# kubectl
-kubectl delete pods spark-pi-driver
 kubectl logs -f spark-pi-driver
 ```
 
-
+Note: If you wish to run the script again, you will have to either delete the *spark-pi-driver* pod or alter the *spark.kubernetes.driver.pod.name* arguement of the spark-submit command.
