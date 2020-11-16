@@ -49,5 +49,8 @@ sudo ./aws/install
 rm awscliv2.zip
 rm -r aws
 
-# Make an SSH key (no password)
+# Install jdk-8
+sudo apt install openjdk-8-jre-headless
+
+# Make an SSH key (no password) (not sure if needed)
 ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""

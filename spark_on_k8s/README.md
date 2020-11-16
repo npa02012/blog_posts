@@ -1,20 +1,7 @@
 ## First Spark Job on the K8s Cluster
 
-This is a continuation from [this previous post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup). That is, the exact setup/configurations/environment is built upon here.
+This is a continuation from [this previous post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup). That is, the exact environment created is built upon here.
 
-### Install JDK
-
-```
-sudo apt install openjdk-8-jre-headless
-```
-
-Check that the install is working nicely with Spark by running a sample job locally:
-
-```
-export PYSPARK_PYTHON=/usr/bin/python3
-cd /opt/spark
-./bin/spark-submit examples/src/main/python/pi.py 10
-```
 ### Build a Docker Image
 
 We are going to build the sample Docker image that comes with Spark. This is the image that will eventually be used in our pods when our spark job is running.
