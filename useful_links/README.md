@@ -9,7 +9,12 @@
 * par(mar = rep(2, 4))  
 * [k8s + docker in devops](https://containerjournal.com/topics/container-ecosystems/how-docker-and-kubernetes-work-together/)
 * [Insight into  difficulties of deploying K8s](https://stackoverflow.com/questions/63907886/deploy-docker-app-on-kubernetes-or-directly-on-ec2-instances)
-
+* [Spark Data Partitioning](https://www.dezyre.com/article/how-data-partitioning-in-spark-helps-achieve-more-parallelism/297#:~:text=Apache%20Spark%20manages%20data%20through,that%20are%20close%20to%20it.)
+* [Unalligned dev/stage/prod workflows](https://www.go4sight.com/blog/dangers-not-syncing-your-development-qa-and-production-environments-0)
+* [ANN on Spark](https://spark.apache.org/docs/latest/ml-ann.html)
+* [Who uses spark?](https://spark.apache.org/powered-by.html)
+* [Alibaba using spark](https://databricks.com/blog/2014/08/14/mining-graph-data-with-spark-at-alibaba-taobao.html)
+* [https://stackoverflow.com/questions/5817579/how-can-i-preview-a-merge-in-git](Previewing a merge in git)
 
 #### Data Science Engineering in Practice
 * [Production Grade PySpark Jobs](https://developerzen.com/best-practices-writing-production-grade-pyspark-jobs-cb688ac4d20f)
