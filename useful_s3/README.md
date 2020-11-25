@@ -14,7 +14,7 @@ s3_client = boto3.client('s3')
 Insert binary data into S3:
 
 ```python
-b_data = b'Here we have some data'
+b_data = b'Test data going to S3'
 object = s3_resource.Object(bucket_name, 'test/test.txt')
 object.put(Body=b_data)
 
