@@ -52,6 +52,11 @@ sudo ./aws/install
 rm awscliv2.zip
 rm -r aws
 
+# Install pip, pyspark and set env variable
+sudo apt install python3-pip
+pip3 install pyspark
+export PYSPARK_PYTHON=/usr/bin/python3
+
 
 # Make an SSH key (no password) (not sure if needed)
 ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""
