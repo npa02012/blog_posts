@@ -1,6 +1,10 @@
-## Scale
+## Spark with Scala
 
-First install Scala and sbt:
+How to build a Spark application written in Scala.
+
+This work is done in the environment created in [this post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).
+
+### Install Scala and sbt
 
 ```
 sudo apt-get install scala
@@ -10,7 +14,7 @@ sudo apt-get update
 sudo apt-get install sbt
 ```
 
-Make directory structure for an app:
+### Make Directory Structure
 
 ```
 cd ~
@@ -21,11 +25,13 @@ mkdir src/main
 mkdir src/main/scala
 ```
 
-Create the following files:
+### Create Files
 
 * ~/scala_app/build.sbt
 * ~/scala_app/src/main/scala/TestApp.scala
 
 files with [code from here](http://spark.apache.org/docs/3.0.0/quick-start.html#self-contained-applications).
 
-The same link has directions to finish the process. Pausing because *sbt package* command taking a long time (t2.nano instance).
+### Build jar File
+
+Pausing because *sbt package* command taking a long time (t2.nano instance).
