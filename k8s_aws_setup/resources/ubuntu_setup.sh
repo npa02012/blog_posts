@@ -52,11 +52,25 @@ sudo ./aws/install
 rm awscliv2.zip
 rm -r aws
 
-# Install pip, pyspark and set env variable
+# Pip installing
 sudo apt install python3-pip
 pip3 install pyspark
-export PYSPARK_PYTHON=/usr/bin/python3
+pip3 install numpy
+pip3 install boto3
+pip3 install jupyter
 
 
 # Make an SSH key (no password) (not sure if needed)
 ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""
+
+
+
+# Environment Variables
+echo 'PYSPARK_PYTHON="/usr/bin/python3"' | sudo tee -a environment
+source /etc/environment
+
+
+
+
+
+
