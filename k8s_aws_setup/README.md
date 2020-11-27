@@ -28,12 +28,18 @@ ssh -i ./ec2_key.pem ubuntu@xx.xxx.xxx.xxx
 
 ### Setup Environment of Instance
 
-The following code snippet will run [this script](https://github.com/npa02012/blog_posts/blob/master/k8s_aws_setup/resources/ubuntu_setup.sh), which installs awscli, Oracle JDK, Docker, kOps, kubectl and Spark.
+The following code snippet will run [these scripts](https://github.com/npa02012/blog_posts/blob/master/k8s_aws_setup/resources), which install awscli, Oracle JDK, Docker, kOps, kubectl and Spark, as well as do other environment setup.
 
 ```
+# Ubuntu Setup
 wget https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/ubuntu_setup.sh
 chmod +x ubuntu_setup.sh
 yes Yes | ./ubuntu_setup.sh
+
+# Env variable setup
+wget https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/var_setup.sh
+chmod +x var_setup.sh
+source var_setup.sh
 ```
 
 Useful related links:  
