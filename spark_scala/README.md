@@ -2,7 +2,9 @@
 
 How to build a Spark application written in Scala.
 
-This work is done in the environment created in [this post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).
+This work is done in the environment created in [this post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).  
+
+Note that this sample project is built using the instructions from the official [Spark 3.0.1 Quick Start Guide](http://spark.apache.org/docs/3.0.1/quick-start.html#self-contained-applications). Minor adjustments may have to be made if different versions of spark/scala are used (particularily in **build.sbt** and **run_scala.sh**).
 
 ### Install Scala and sbt
 
@@ -28,10 +30,17 @@ mkdir src/main/scala
 ### Create Files
 
 * ~/scala_app/build.sbt
-* ~/scala_app/src/main/scala/TestApp.scala
+* ~/scala_app/src/main/scala/SimpleApp.scala
 
 files with [code from here](http://spark.apache.org/docs/3.0.0/quick-start.html#self-contained-applications).
 
 ### Build jar File
 
-Pausing because *sbt package* command taking a long time (t2.nano instance).
+```
+cd ~/scala_app
+sbt package
+```
+
+```
+
+```

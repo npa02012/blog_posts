@@ -1,0 +1,11 @@
+This is sample text
+
+For the SimpleApp
+
+Which is written is Scala
+
+More Sample Text
+
+So the output
+
+Is more interesting!
