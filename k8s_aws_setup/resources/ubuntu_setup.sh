@@ -67,7 +67,7 @@ ssh-keygen -t rsa -C "example@gmail.com" -f ~/.ssh/id_rsa -P ""
 
 # Environment Variables
 echo 'PYSPARK_PYTHON="/usr/bin/python3"' | sudo tee -a /etc/environment
-source /etc/environment
+export PYSPARK_PYTHON="/usr/bin/python3"
 
 
 
