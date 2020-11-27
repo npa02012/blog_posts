@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 # Update apt
 sudo apt-get update
 
