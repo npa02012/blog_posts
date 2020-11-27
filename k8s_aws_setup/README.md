@@ -33,7 +33,7 @@ The following code snippet will run [this script](https://github.com/npa02012/bl
 ```
 wget https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/ubuntu_setup.sh
 chmod +x ubuntu_setup.sh
-bash -e yes Yes | ./ubuntu_setup.sh
+yes Yes | ./ubuntu_setup.sh
 ```
 
 Useful related links:  
