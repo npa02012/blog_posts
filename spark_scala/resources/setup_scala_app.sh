@@ -10,6 +10,8 @@ wget -P ~/scala_app/ \
 wget -P ~/scala_app/resources/ \
 	https://raw.githubusercontent.com/npa02012/blog_posts/master/spark_scala/resources/sample_text.txt
 
-# Download run_app script
+# Download run_app script and make it executable
 wget -P ~/scala_app/resources \
 	https://raw.githubusercontent.com/npa02012/blog_posts/master/spark_scala/resources/run_app.sh
+
+chmod +x ~/scala_app/resources/run_app.sh

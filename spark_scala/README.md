@@ -54,7 +54,6 @@ sbt package
 
 ### Run the Application
 ```
-chmod +x ~/scala_app/resources/run_app.sh
 ~/scala_app/resources/run_app.sh
 ```
 
