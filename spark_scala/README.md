@@ -16,16 +16,16 @@ sudo apt-get update
 sudo apt-get install sbt
 ```
 
-### Make Directory Structure
+### Download Files
 
 ```
 cd ~
-mkdir scala_app
-cd scala_app
-mkdir src
-mkdir src/main
-mkdir src/main/scala
+wget https://raw.githubusercontent.com/npa02012/blog_posts/master/spark_scala/resources/setup_scala_app.sh
+chmod +x setup_scala_app.sh
+./setup_scala_app.sh
 ```
+
+
 
 ### Create Files
 
