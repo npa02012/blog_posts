@@ -32,14 +32,14 @@ The following code snippet will run [these scripts](https://github.com/npa02012/
 
 ```
 # Ubuntu Setup
-wget https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/ubuntu_setup.sh
-chmod +x ubuntu_setup.sh
-yes Yes | ./ubuntu_setup.sh
+wget -P ~/setup_scripts https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/ubuntu_setup.sh
+chmod +x ~/setup_scripts/ubuntu_setup.sh
+yes Yes | ~/setup_scripts/ubuntu_setup.sh
 
 # Env variable setup
-wget https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/var_setup.sh
-chmod +x var_setup.sh
-source var_setup.sh
+wget -P ~/setup_scripts https://raw.githubusercontent.com/npa02012/blog_posts/master/k8s_aws_setup/resources/var_setup.sh
+chmod +x ~/setup_scripts/var_setup.sh
+source ~/setup_scripts/var_setup.sh
 ```
 
 Useful related links:  
