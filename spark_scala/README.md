@@ -19,13 +19,34 @@ sudo apt-get install sbt
 ### Download Files
 
 ```
-cd ~
-wget ~/setup_scripts https://raw.githubusercontent.com/npa02012/blog_posts/master/spark_scala/resources/setup_scala_app.sh
-chmod +x setup_scala_app.sh
-./setup_scala_app.sh
+wget -P ~/setup_scripts https://raw.githubusercontent.com/npa02012/blog_posts/master/spark_scala/resources/setup_scala_app.sh
+chmod +x ~/setup_scripts/setup_scala_app.sh
+~/setup_scripts/setup_scala_app.sh
+```
+
+The [setup script](https://github.com/npa02012/blog_posts/blob/master/spark_scala/resources/setup_scala_app.sh) will create the directory structure and download the necessary files for the spark-scala application. Note the directory structure at this point:
+
+```
+cd ~/scala_app
+find .
+
+Out:
+-------------------------
+.
+./build.sbt
+./resources
+./resources/run_app.sh
+./resources/sample_text.txt
+./src
+./src/main
+./src/main/scala
+./src/main/scala/SampleApp.scala
 ```
 
 ### Build the package
+
+This may take a while if it is your your first time running *sbt* on the machine (about 1 minute on a *t2.medium* instance).
+
 ```
 cd ~/scala_app
 sbt package
