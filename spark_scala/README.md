@@ -20,27 +20,26 @@ sudo apt-get install sbt
 
 ```
 cd ~
-wget https://raw.githubusercontent.com/npa02012/blog_posts/master/spark_scala/resources/setup_scala_app.sh
+wget ~/setup_scripts https://raw.githubusercontent.com/npa02012/blog_posts/master/spark_scala/resources/setup_scala_app.sh
 chmod +x setup_scala_app.sh
 ./setup_scala_app.sh
 ```
 
-
-
-### Create Files
-
-* ~/scala_app/build.sbt
-* ~/scala_app/src/main/scala/SimpleApp.scala
-
-files with [code from here](http://spark.apache.org/docs/3.0.0/quick-start.html#self-contained-applications).
-
-### Build jar File
-
+### Build the package
 ```
 cd ~/scala_app
 sbt package
 ```
 
+### Run the Application
+```
+chmod +x ~/scala_app/resources/run_app.sh
+~/scala_app/resources/run_app.sh
 ```
 
+This should execute successfully! If so, there will be some output text in the log saying: 
+
+```
+Output from SampleApp:
+Lines with a: 3, Lines with b: 0
 ```
