@@ -1,6 +1,6 @@
 ## Loading S3 Data From PySpark
 
-This post outlines the setup and configuration needed to download data in S3 from a PySpark application. THe work builds off of the environment created in [this post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).  
+This post outlines the setup and configuration needed to download data in S3 from a PySpark application. The work builds off of the environment created in [this post](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).  
 
 ### Create a CSV File in S3
 
@@ -53,6 +53,6 @@ export PYSPARK_PYTHON=/usr/bin/python3
 My example output printed (amongst the Spark logs):  
 **Number of rows: 5**
 
-Note: I still need to figure out how to set PYSPARK_PYTHON as a default environment variable that is accessible by Spark in my in my [default setup](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).
+Note: I still need to figure out how to set PYSPARK_PYTHON as a default environment variable that is accessible by Spark in my [default setup](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).
 
 
