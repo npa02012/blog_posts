@@ -9,7 +9,7 @@ Put a CSV file in S3 for example use. You can refer to [this post](https://githu
 In my case, I have uploaded a file with key *test/test.csv* into my *npa02012-main* bucket with the following contents:  
 
 ```
-col_1,col_2,col_3
+col1,col2,col3
 d11,d12,d13
 d21,d22,d23
 d31,d32,d33
@@ -28,12 +28,31 @@ wget -P ~/jars https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0
 wget -P ~/jars https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.908/aws-java-sdk-bundle-1.11.908.jar
 ```
 
+### Download Python Script
+
+[This script](https://raw.githubusercontent.com/npa02012/blog_posts/master/pyspark_s3/resources/spark_s3_example.py) provides the PySpark code needed to access the CSV file from the PySpark application. Note: The *csv_path* variable will need to be altered.  
+
+```
+wget -P ~/ https://raw.githubusercontent.com/npa02012/blog_posts/master/pyspark_s3/resources/spark_s3_example.py
+``` 
+
+The application will print the number of rows in your CSV file.
+
+### Submit the Application
+
+For this example, we will run the Spark Application locally.
 
 
 ```
+export PYSPARK_PYTHON=/usr/bin/python3
 /opt/spark/bin/spark-submit \
     --jars /home/ubuntu/jars/aws-java-sdk-bundle-1.11.908.jar,/home/ubuntu/jars/hadoop-aws-3.2.0.jar \
-    /home/ubuntu/s3_ex.py
+    /home/ubuntu/spark_s3_example.py
 ```
+
+My example output printed (amongst the Spark logs):  
+**Number of rows: 5**
+
+Note: I still need to figure out how to set PYSPARK_PYTHON as a default environment variable that is accessible by Spark in my in my [default setup](https://github.com/npa02012/blog_posts/tree/master/k8s_aws_setup).
 
 
