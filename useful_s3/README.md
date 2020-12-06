@@ -20,6 +20,15 @@ object = s3_resource.Object(bucket_name, 'test/test.txt')
 object.put(Body=b_data)
 ```
 
+Upload a local file to S3:
+
+```python
+local_name = 'path_to_local_file'
+s3_name = 'name_to_be_in_s3'
+s3_resource.Bucket('npa02012-main')\
+	.upload_file(local_name, s3_name)
+```
+
 List all objects in a bucket:
 
 ```python
