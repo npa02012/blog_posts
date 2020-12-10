@@ -15,6 +15,7 @@
 * [Who uses spark?](https://spark.apache.org/powered-by.html)
 * [Alibaba using spark](https://databricks.com/blog/2014/08/14/mining-graph-data-with-spark-at-alibaba-taobao.html)
 * [https://stackoverflow.com/questions/5817579/how-can-i-preview-a-merge-in-git](Previewing a merge in git)
+* [Why use a makefile instead of shell](https://stackoverflow.com/questions/3798562/why-use-make-over-a-shell-script#:~:text=Make%20ensures%20that%20only%20the,changes%20to%20your%20source%20files.&text=c%20only%20%26%20run%20make%20%2C%20it,lot%20of%20if%2Felse%20checking.)
 
 #### Data Science Engineering in Practice
 * [Production Grade PySpark Jobs](https://developerzen.com/best-practices-writing-production-grade-pyspark-jobs-cb688ac4d20f)
