@@ -73,27 +73,27 @@ import time
 import random
 random.seed(4)
 
-print('Starting # of threads - ' + str(threading.active_count()))
+print('Starting number of threads - ' + str(threading.active_count()))
 
 def task(p):
     time.sleep(random.random())
-    print('Current # of threads - ' + str(threading.active_count()))
+    print('Current number of threads - ' + str(threading.active_count()))
     return(p)
 
 T = concurrent.futures.ThreadPoolExecutor(max_workers=2)
 futures = [T.submit(task, p) for p in range(5)]
 T.shutdown()
-print('Final # of threads - ' + str(threading.active_count()))
+print('Final number of threads - ' + str(threading.active_count()))
 
 Out:
 -------------------------
-Starting # of threads - 1
-Current # of threads - 3
-Current # of threads - 3
-Current # of threads - 3
-Current # of threads - 3
-Current # of threads - 2
-Final # of threads - 1
+Starting number of threads - 1
+Current number of threads - 3
+Current number of threads - 3
+Current number of threads - 3
+Current number of threads - 3
+Current number of threads - 2
+Final number of threads - 1
 ```
 
 ### Threads not Shutting Down
@@ -105,7 +105,7 @@ import concurrent.futures
 import threading
 import time
 
-print('Starting # of threads - ' + str(threading.active_count()))
+print('Starting number of threads - ' + str(threading.active_count()))
 
 def task(p):
     return(p)
@@ -114,26 +114,26 @@ T = concurrent.futures.ThreadPoolExecutor()
 futures = [T.submit(task, p) for p in range(5)]
 print([f.result() for f in futures])
 time.sleep(1)
-print('Current # of threads - ' + str(threading.active_count()))
+print('Current number of threads - ' + str(threading.active_count()))
 T.shutdown()
-print('Final # of threads - ' + str(threading.active_count()))
+print('Final number of threads - ' + str(threading.active_count()))
 
 Out:
 -------------------------
-Starting # of threads - 1
+Starting number of threads - 1
 [0, 1, 2, 3, 4]
-Current # of threads - 6
-Final # of threads - 1
+Current number of threads - 6
+Final number of threads - 1
 ```
 Even though all of our tasks have finished (we use **time.sleep** to ensure they are really complete), we still have 6 active threads before calling **T.shutdown()**.  
 
-However, if we call **T.shutdown()** immediately, we can still gather our results and treads seem to be shutdown.
+However, if we call **T.shutdown()** immediately, we can still gather our results and threads seem to be shutdown.
 
 ```python
 import concurrent.futures
 import threading
 
-print('Starting # of threads - ' + str(threading.active_count()))
+print('Starting number of threads - ' + str(threading.active_count()))
 
 def task(p):
     return(p)
@@ -141,16 +141,16 @@ def task(p):
 T = concurrent.futures.ThreadPoolExecutor()
 futures = [T.submit(task, p) for p in range(5)]
 T.shutdown()
-print('Current # of threads - ' + str(threading.active_count()))
+print('Current number of threads - ' + str(threading.active_count()))
 print([f.result() for f in futures])
-print('Final # of threads - ' + str(threading.active_count()))
+print('Final number of threads - ' + str(threading.active_count()))
 
 Out:
 -------------------------
-Starting # of threads - 1
-Current # of threads - 1
+Starting number of threads - 1
+Current number of threads - 1
 [0, 1, 2, 3, 4]
-Final # of threads - 1
+Final number of threads - 1
 ```
 
 I am no expert with threading, but immediately calling **T.shutdown()** feels undesirable. Even if it is okay, I suspect threads are not killed until all worker threads are complete. On the other hand, the example under [Limiting the Number of Threads](#Limiting-the-Number-of-Threads) provides evidence otherwise.  
