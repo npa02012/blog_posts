@@ -31,11 +31,11 @@ Extract contents of jar file:
 ```
 jar xf ./path/to/file.jar
 ```
--
+---
 
 **source** and **.** are synonymous. Used to source the contents of a file into the current shell.
 
--
+---
 
 Subcommands:
 
@@ -44,19 +44,17 @@ Subcommands:
 * -z string : Checks if string is NULL (e.g: -z "$VAR")
 * -n string: Checks if string is not null.
 
--
+---
 
 * set -a : Mark variables and function which are modified or created for export to the environment of subsequent commands.
 * set -e : Exit if pipeline returns non-zero exit status.
 
-[More]()
 
--
+---
 
-If VARIABLE is null, then set FOO to defaultValue.
+If VARIABLE is null, then set FOO to defaultValue.  
+[More info.](https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash)
 
 ```
 FOO=${VARIABLE:-defaultValue}
 ```
-
-[More](https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash)

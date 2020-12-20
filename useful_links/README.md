@@ -17,6 +17,15 @@
 * [https://stackoverflow.com/questions/5817579/how-can-i-preview-a-merge-in-git](Previewing a merge in git)
 * [Why use a makefile instead of shell](https://stackoverflow.com/questions/3798562/why-use-make-over-a-shell-script#:~:text=Make%20ensures%20that%20only%20the,changes%20to%20your%20source%20files.&text=c%20only%20%26%20run%20make%20%2C%20it,lot%20of%20if%2Felse%20checking.)
 
+#### Embedded Programming
+* [Embedded Programming](https://www.oreilly.com/library/view/programming-embedded-systems/0596009836/ch01.html)
+
 #### Data Science Engineering in Practice
 * [Production Grade PySpark Jobs](https://developerzen.com/best-practices-writing-production-grade-pyspark-jobs-cb688ac4d20f)
 * [ML Production Engineering at Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/ml-workflows.html)
+* [Workflow Tools for Model Pipelines](https://towardsdatascience.com/workflow-tools-for-model-pipelines-45030a93e9e0)
+* [How to deploy machine learning models in production](https://christophergs.com/machine%20learning/2019/03/17/how-to-deploy-machine-learning-models/)
+* [Hidden technical debt in ML systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
+* [Googles hybrid approach to research](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/38149.pdf)
+* [Continous delivery for ML](https://martinfowler.com/articles/cd4ml.html)
+* [Deploy machine learning models in shadow mode](https://christophergs.com/machine%20learning/2019/03/30/deploying-machine-learning-applications-in-shadow-mode/)
