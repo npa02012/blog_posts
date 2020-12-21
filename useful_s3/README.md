@@ -44,6 +44,22 @@ local_name = 'save_as.txt'
 s3_client.download_file(bucket_name, s3_key, local_name)
 ```
 
+Download CSV to Pandas (Partial or Full)
+
+```python
+import io
+key = 'file/to/download'
+
+# Full
+obj = s3_client.get_object(Bucket=bucket_name, Key=key)
+df = pd.read_csv(io.BytesIO(obj['Body'].read()))
+
+# Partial
+obj = s3_client.get_object(Bucket=bucket_name, Key=key)
+obj_iter = pd.read_csv(obj['Body'], chunksize = 5)
+df = obj_iter.get_chunk()
+```
+
 ### From Shell:
 Create a new bucket:
 
