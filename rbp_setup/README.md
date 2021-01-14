@@ -10,7 +10,7 @@ In this post, I outline steps I use to setup a Raspberry Pi system to act as an 
 
 ## SD Card Setup
 
-The first step is to put the Raspberry Pi OS onto the SD Card. First, download a the zip file of the Raspberry Pi OS with Desktop from [here](https://www.raspberrypi.org/downloads/raspberry-pi-os/). At the time of writing, I am using the 2020-08-20 release.  
+The first step is to put the Raspberry Pi OS onto the SD Card. First, download a the zip file of the Raspberry Pi OS with Desktop from [here](https://www.raspberrypi.org/downloads/raspberry-pi-os/). At the time of writing, I am using the 2020-08-20-raspios-buster-armhf.img.  
 
 Once downloaded, unzip the file. To get the image onto the SD card, follow [these instructions](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md). I found that the troubleshooting instructions in the article are not clearly labeled so, and may be mistaken as mandatory. The final two commands you will execute (assuming things go smoothly) are:
 

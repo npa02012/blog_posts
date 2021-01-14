@@ -15,6 +15,16 @@ kubectl delete pods spark-pi-driver
 kubectl logs -f spark-pi-driver
 ```
 
+### Git
+
+```
+# Make a file in feature branch match master
+git checkout origin/master path/to/file
+
+# Get names of files that differ from master
+git diff --name-only master
+```
+
 
 ### Shell
 

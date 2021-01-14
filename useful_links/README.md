@@ -20,6 +20,9 @@
 #### Embedded Programming
 * [Embedded Programming](https://www.oreilly.com/library/view/programming-embedded-systems/0596009836/ch01.html)
 
+#### Machine Learning
+* [Continuation learning on a LightGBM Model](https://stackoverflow.com/questions/45654998/lightgbm-continue-training-a-model)
+
 #### Data Science Engineering in Practice
 * [Production Grade PySpark Jobs](https://developerzen.com/best-practices-writing-production-grade-pyspark-jobs-cb688ac4d20f)
 * [ML Production Engineering at Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/ml-workflows.html)
@@ -29,3 +32,9 @@
 * [Googles hybrid approach to research](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/38149.pdf)
 * [Continous delivery for ML](https://martinfowler.com/articles/cd4ml.html)
 * [Deploy machine learning models in shadow mode](https://christophergs.com/machine%20learning/2019/03/30/deploying-machine-learning-applications-in-shadow-mode/)
+
+#### Kubernetes
+- [Resource Management](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
+
+#### Airflow
+- [Kubernetes Executor](https://airflow.apache.org/docs/apache-airflow/stable/executor/kubernetes.html)
