@@ -23,6 +23,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mykey.key -out mycer
 cd ../
 ```
 ### Start server
+
+Before starting the Jupyter server, consider [one of these options](https://stackoverflow.com/questions/47331050/how-to-run-jupyter-notebook-in-the-background-no-need-to-keep-one-terminal-for) for starting the notebook in the 'background'. This is particularily relevant if you are ssh'd into the EC2 instance - if you disconnect from the ssh session, the Jupyter server will persist. I use **tmux** here.
+
 ```
 cd ~
 jupyter notebook --certfile=~/ssl/mycert.pem --keyfile ~/ssl/mykey.key
