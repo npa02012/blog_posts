@@ -16,6 +16,10 @@
 * [Alibaba using spark](https://databricks.com/blog/2014/08/14/mining-graph-data-with-spark-at-alibaba-taobao.html)
 * [https://stackoverflow.com/questions/5817579/how-can-i-preview-a-merge-in-git](Previewing a merge in git)
 * [Why use a makefile instead of shell](https://stackoverflow.com/questions/3798562/why-use-make-over-a-shell-script#:~:text=Make%20ensures%20that%20only%20the,changes%20to%20your%20source%20files.&text=c%20only%20%26%20run%20make%20%2C%20it,lot%20of%20if%2Felse%20checking.)
+  
+
+  
+* https://cloud.google.com/solutions/machine-learning/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning
 
 #### Embedded Programming
 * [Embedded Programming](https://www.oreilly.com/library/view/programming-embedded-systems/0596009836/ch01.html)
