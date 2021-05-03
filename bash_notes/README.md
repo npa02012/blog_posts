@@ -17,7 +17,6 @@ for v in ${vars[@]}; do
 dones
 
 # Loop through indices
-
 for i in ${!vars[@]}; do
 	printf 'Value at index %s: %s\n' $i ${vars[$i]}
 done
