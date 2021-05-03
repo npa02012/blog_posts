@@ -19,3 +19,4 @@ A landing place for insights and ideas that I want to document.
 * 2 Plots, one graph (R)
 * xtable in RMD
 * Embedded Programming basics
+* Dynamic module/classes/instance loading
