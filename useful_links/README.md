@@ -37,8 +37,17 @@
 * [Continous delivery for ML](https://martinfowler.com/articles/cd4ml.html)
 * [Deploy machine learning models in shadow mode](https://christophergs.com/machine%20learning/2019/03/30/deploying-machine-learning-applications-in-shadow-mode/)
 
+-----
+  
+* https://medium.com/pytorch/how-to-iterate-faster-in-machine-learning-by-versioning-data-and-models-featuring-detectron2-4fd2f9338df5
+* https://github.com/cdfoundation/sig-mlops/blob/master/roadmap/2020/MLOpsRoadmap2020.md
+* https://pypi.org/project/hops/
+* https://netflixtechblog.com/distributed-time-travel-for-feature-generation-389cccdd3907
+* [Video on MLFlow for Feature Store](https://www.youtube.com/watch?v=z0-Cs7wYOjI&ab_channel=Databricks)
+
 #### Kubernetes
 - [Resource Management](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
 
 #### Airflow
 - [Kubernetes Executor](https://airflow.apache.org/docs/apache-airflow/stable/executor/kubernetes.html)
+

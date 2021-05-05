@@ -24,3 +24,9 @@ sudo diskutil eject /dev/rdiskN
 ## Install Software
 
 * [rpi-clone](https://github.com/billw2/rpi-clone) - Software for making clones of your SD card. I am using [this commit](https://github.com/billw2/rpi-clone/commit/07f536e9d93cb5b50635415ee0fa46f498614ee4) at the moment.
+
+## Other Setup
+
+* [Managing IAM Access Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+* Orchestration tools: Ansible, Puppet
+* Deployment platforms: AWS Greengrass, Belena
