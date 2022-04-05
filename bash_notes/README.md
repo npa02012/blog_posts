@@ -1,14 +1,27 @@
-### Quick Notes
-
-* Shebang line to ensure bash is used to parse the file:
+### .vimrc Profile
 
 ```bash
-#!/bin/bash
+# Allow mouse clicking
+set mouse=a
+
+# Stop auto-indenting
+set wrap
+set linebreak
+set nolist
+set textwidth=0
+
+# Color scheme
+colorscheme blue
 ```
+
+### Quick Notes
+
 
 * Loop through an array:
 
 ```bash
+#!/bin/bash
+
 vars=('var0' 'var1' 'var2')
 
 # Loop through values
@@ -30,4 +43,3 @@ Value at index 0: var0
 Value at index 1: var1
 Value at index 2: var2
 ```
-
