@@ -10,7 +10,7 @@ openssl enc -aes-256-cbc -salt \
 
 # Decrypt from secrets.enc to secrets.md
 openssl enc -d -aes-256-cbc \
-	-in secrets.end \
+	-in secrets.enc \
 	-out secrets.md
 ```
 
