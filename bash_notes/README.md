@@ -1,22 +1,4 @@
-### .vimrc Profile
-
-```bash
-" Allow mouse clicking
-set mouse=a
-
-" Stop auto-indenting
-set wrap
-set linebreak
-set nolist
-set textwidth=0
-
-" Color scheme
-colorscheme blue
-```
-
-### Other
-
-* General:
+### General
 
 ```bash
 # Find all files containing a specific string
@@ -26,7 +8,7 @@ grep -rnw '/path/to/somewhere/' -e 'pattern'
 jar xf ./path/to/file.jar
 ```
 
-* Loop through an array:
+### Loop through an array
 
 ```bash
 #!/bin/bash
