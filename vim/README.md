@@ -20,8 +20,6 @@ colorscheme blue
 ### vim commands
 
 ```
-
-
 :tabnew ./path/to/file.py
 or
 :tabe ./path/to/file.py
